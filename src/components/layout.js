@@ -1,6 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import "../../normalize.css";
+import { createGlobalStyle, ThemeProvider } from "styled-components"
+import theme from "../styles/theme";
 
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: black;
+  }
+`
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
@@ -12,9 +21,13 @@ class Template extends React.Component {
     }
 
     return (
-      <div>
-        {children}
-      </div>
+      <>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <main>{children}</main>
+        </ThemeProvider>
+      </>
+
     )
   }
 }
