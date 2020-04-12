@@ -10,13 +10,13 @@ import {
 
 const AboutMe = ({ nodes }) => (
   <MainContainer>
-    {nodes.map(({ title, content, src }) => (
+    {nodes.map(({ title, content: { content }, sideImg }) => (
       <Container>
-        <Title>{title}</Title>
         <ContentDiv>
-          <Content>{content}</Content>
+          <Title>{title}</Title>
+          <Content>{JSON.parse(content).content[0].content[0].value}</Content>
         </ContentDiv>
-        <Img src={src}></Img>
+        <Img src={sideImg.fluid.src}></Img>
       </Container>
     ))}
   </MainContainer>
