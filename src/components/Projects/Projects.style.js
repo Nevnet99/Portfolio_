@@ -19,6 +19,13 @@ export const MainContainer = styled.div`
     }
   `}
 `
+export const MainTitle = styled.h2`
+  width: 100%;
+  text-align: center;
+  ${({ theme }) => `
+    margin-bottom: ${theme.margin.l};
+  `}
+`
 
 export const ProjectContainer = styled.div`
   display: flex;
@@ -57,6 +64,9 @@ export const BackgroundImage = styled.div`
 
 export const Title = styled.h2`
   text-align: center;
+  ${({ theme }) => `
+    margin-bottom: ${theme.margin.s};
+  `}
 `
 
 export const Technology = styled.p`

@@ -6,15 +6,15 @@ import {
   ImgBackground,
   Title,
   Description,
+  StyledArrowDown,
 } from './PortfolioHero.styles'
-import ArrowDown from '../Buttons/ArrowDown'
 
 const PortfolioHero = ({ description, title, backgroundImg }) => (
   <Container>
     <ImgBackground src={backgroundImg.fluid.src} />
     <Title>{title}</Title>
     <Description>{description}</Description>
-    <ArrowDown height={32} width={32} />
+    <StyledArrowDown height={32} width={32} />
   </Container>
 )
 

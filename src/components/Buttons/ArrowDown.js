@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import arrowdownIcon from '../../../static/img/arrow-down.svg'
+import { minBp } from '../../styles/mixins'
 
 const Container = styled.div`
+  ${({ theme }) => `
+  display: none;
+  ${minBp(theme.breakpoints.b)} {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -17,6 +21,9 @@ const Container = styled.div`
   &:active {
     transform: translateY(9px);
   }
+        display: unset;
+      }
+  `}
 `
 const Button = styled.button``
 

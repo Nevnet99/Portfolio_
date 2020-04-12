@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { minBp } from '../../styles/mixins'
 
 const Button = styled.button`
   background-color: transparent;

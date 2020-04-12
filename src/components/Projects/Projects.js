@@ -7,6 +7,7 @@ import {
   MainBut,
   BackgroundImage,
   AnimationContainer,
+  MainTitle,
 } from './Projects.style'
 import ProjectsNavigation from '../ProjectsNavigation/ProjectsNavigation'
 
@@ -18,14 +19,15 @@ const Projects = ({ nodes }) => {
   }
   return (
     <MainContainer>
+      <MainTitle>Projects</MainTitle>
       <ProjectsNavigation updateData={updateData} nodes={nodes} />
       {activeData.map(
         ({ buttonLink, buttonText, technology, title, image }, index) => (
           <ProjectContainer key={index}>
             <BackgroundImage src={image.fluid.src}></BackgroundImage>
             <Title>{title}</Title>
+            <Technology>{technology}</Technology>
             <AnimationContainer>
-              <Technology>{technology}</Technology>
               <MainBut href={buttonLink}>{buttonText}</MainBut>
             </AnimationContainer>
           </ProjectContainer>

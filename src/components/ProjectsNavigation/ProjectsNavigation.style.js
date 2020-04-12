@@ -1,13 +1,17 @@
 import styled from 'styled-components'
+import { minBp } from '../../styles/mixins'
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 70%;
-  margin: 0 auto;
+  display: none;
   ${({ theme }) => `
-    padding: ${theme.padding.l};
+    ${minBp(theme.breakpoints.b)} {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 92%;
+    margin: 0 auto;
+    padding: ${theme.padding.m};
+      }
   `}
 `
 
