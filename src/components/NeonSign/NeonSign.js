@@ -38,14 +38,16 @@ const Container = styled.button`
       ? `
         position: fixed;
         right: 2%;
-        top: 5%;
+        top: 20%;
         width: unset;
     `
       : ``}
 
   ${({ theme }) => `
+  display: none;
     ${minBp(theme.breakpoints.b)} {
         font-size: 80px;
+        display: flex;
     }
     `}
 `

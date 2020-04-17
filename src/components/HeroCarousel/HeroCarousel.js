@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -12,10 +12,13 @@ import {
   Title,
   Description,
   Lines,
+  MiniCarousel,
 } from './HeroCarousel.styles'
 
 const HeroCarousel = ({ allContentfulCarousel: { nodes } }) => {
   const slick = useRef(null)
+  const slick2 = useRef(null)
+
   const settings = {
     dots: true,
     infinite: true,
@@ -25,6 +28,13 @@ const HeroCarousel = ({ allContentfulCarousel: { nodes } }) => {
     autoplay: true,
     autoplaySpeed: 10000,
     appendDots: dots => <Lines>{dots}</Lines>,
+  }
+
+  const settings2 = {
+    vertical: true,
+    slidesToScroll: 1,
+    slidesToShow: 3,
+    focusOnSelect: false,
   }
 
   return (
@@ -50,6 +60,36 @@ const HeroCarousel = ({ allContentfulCarousel: { nodes } }) => {
           )
         )}
       </Slider>
+      <MiniCarousel>
+        <Slider
+          {...settings2}
+          asNavFor={slick}
+          ref={slick2}
+          slidesToShow={nodes.length}
+          focusOnSelect={false}
+          swipeToSlide
+        >
+          {nodes.map(
+            (
+              {
+                title,
+                description,
+                backgroundImg: {
+                  fluid: { src },
+                },
+              },
+              index
+            ) => (
+              <Slide isMini onClick={() => slick.current.slickGoTo(index)}>
+                <MediaWrapper isMini>
+                  <Title isMini>{title}</Title>
+                  <Background src={src} />
+                </MediaWrapper>
+              </Slide>
+            )
+          )}
+        </Slider>
+      </MiniCarousel>
     </Container>
   )
 }

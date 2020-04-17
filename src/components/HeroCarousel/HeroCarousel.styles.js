@@ -2,32 +2,30 @@ import styled from 'styled-components'
 import { minBp } from '../../styles/mixins'
 
 export const Container = styled.div`
-  height: 100%;
+  height: 100vh;
+  position: relative;
 `
 
 export const Slide = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ theme }) => `
-    ${minBp(theme.breakpoints.b)} {
-        height: 500px;
-    }
-    ${minBp(theme.breakpoints.c)} {
-        height: 700px;
-    }
-    `}
+  ${({ isMini }) => `
+    ${isMini ? `height: 150px; width: 200px;` : ``};
+  `}
 `
 export const MediaWrapper = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: -1;
+  ${({ isMini }) => `
+    ${isMini ? `width: 150px; height: 150px` : ``};
+  `}
 `
-
 export const Background = styled.div`
   ${({ src }) => `
 background-image: url(${src});
@@ -43,7 +41,7 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   ${({ theme }) => `
     padding ${theme.padding.m};
     ${minBp(theme.breakpoints.b)} {
@@ -62,13 +60,17 @@ export const Content = styled.div`
     z-index: -1;
   }
 `
-
 export const Title = styled.h2`
-  ${({ theme }) => `
+  ${({ theme, isMini }) => `
     margin-bottom: ${theme.margin.m};
     ${minBp(theme.breakpoints.b)} {
         margin-left: ${theme.margin.l};
         font-size: ${theme.font.size.l};
+        ${
+          isMini
+            ? ` font-size: ${theme.font.size.s}; position: absolute; bottom: 0; margin:${theme.margin.s};`
+            : ``
+        }
     }
 `}
 `
@@ -84,15 +86,11 @@ export const Description = styled.p`
     }
 `}
 `
-
 export const Buttons = styled.div`
   margin: 0 auto;
 `
-
 export const Next = styled.button``
-
 export const Prev = styled.button``
-
 export const Lines = styled.div`
   position: absolute;
   bottom: 20px;
@@ -112,4 +110,12 @@ export const Lines = styled.div`
       background-color: ${({ theme }) => `${theme.color.accent.a}`};
     }
   }
+`
+export const MiniCarousel = styled.div`
+  position: absolute;
+  top: 400px;
+  right: 50px;
+  width: 150px;
+  height: 50vh;
+  overflow: hidden;
 `

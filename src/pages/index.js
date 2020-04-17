@@ -8,14 +8,6 @@ import NeonSign from '../components/NeonSign/NeonSign'
 const RootIndex = ({ data }) => (
   <Layout>
     <HeroCarousel {...data} />
-    <NeonSign>
-      Portfolio
-      <FiChevronDown />
-    </NeonSign>
-    <NeonSign isVert>
-      Blog
-      <FiChevronRight />
-    </NeonSign>
   </Layout>
 )
 

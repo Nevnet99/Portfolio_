@@ -5,6 +5,7 @@ import PortfolioHero from '../components/PortfolioHero/PortfolioHero'
 import PortfolioStatistics from '../components/PortfolioStatistics/PortfolioStatistics'
 import Projects from '../components/Projects/Projects'
 import AboutMe from '../components/AboutMe/AboutMe'
+import Testimonials from '../components/Testimonials/Testimonials'
 
 const Portfolio = ({ data }) => {
   console.log('PAGE QUERY', data)
@@ -13,13 +14,15 @@ const Portfolio = ({ data }) => {
     allContentfulPortfolioStatistics,
     allContentfulProjectItem,
     allContentfulAboutMe,
+    allContentfulTestimonial,
   } = data
   return (
     <Layout>
       <PortfolioHero {...contentfulPortfolioHero} />
       <AboutMe {...allContentfulAboutMe} />
-      <PortfolioStatistics {...allContentfulPortfolioStatistics} />
       <Projects {...allContentfulProjectItem} />
+      <PortfolioStatistics {...allContentfulPortfolioStatistics} />
+      <Testimonials {...allContentfulTestimonial} />
     </Layout>
   )
 }
@@ -66,6 +69,13 @@ export const pageQuery = graphql`
         }
         content {
           content
+        }
+      }
+    }
+    allContentfulTestimonial {
+      nodes {
+        testimonial {
+          testimonial
         }
       }
     }

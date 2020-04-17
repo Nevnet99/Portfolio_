@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { minBp } from '../../styles/mixins'
+import { minBp, toRgba } from '../../styles/mixins'
 
 export const Container = styled.div`
   display: flex;
@@ -11,11 +11,12 @@ export const Container = styled.div`
   color: white;
   ${({ theme }) => `
         padding: ${theme.padding.s} 0;
+        background-color: ${toRgba('#130f40', 0.5)};
         ${minBp(theme.breakpoints.b)} {
             position: absolute;
             top: 0;
             left: 0;
-            width: 95%;
+            width: 95.5%;
             z-index: 50000;
             justify-content: space-between;
             align-items: center;
@@ -39,4 +40,11 @@ export const ButtonsContainer = styled.div`
         `}
 `
 
-export const Title = styled.h2``
+export const Title = styled.h2`
+  display: none;
+  ${({ theme }) => `
+    ${minBp(theme.breakpoints.b)} {
+       display: block;
+        }
+        `}
+`

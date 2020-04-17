@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { ButtonsContainer, Container, Title } from './Navbar.styles'
 import NavButton from '../Buttons/NavButton'
 
@@ -7,10 +8,15 @@ function Navbar() {
     <Container>
       <Title>Luke Brannagan</Title>
       <ButtonsContainer>
-        <NavButton>Test 1</NavButton>
-        <NavButton>Test 1</NavButton>
-        <NavButton>Test 1</NavButton>
-        <NavButton>Test 1</NavButton>
+        <Link to="/">
+          <NavButton>Home</NavButton>
+        </Link>
+        <Link to="/blog">
+          <NavButton>Blog</NavButton>
+        </Link>
+        <Link to="/portfolio">
+          <NavButton>Portfolio</NavButton>
+        </Link>
       </ButtonsContainer>
     </Container>
   )
