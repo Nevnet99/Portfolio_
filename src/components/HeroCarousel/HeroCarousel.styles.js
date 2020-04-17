@@ -2,19 +2,28 @@ import styled from 'styled-components'
 import { minBp } from '../../styles/mixins'
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 85vh;
   position: relative;
+  ${({ theme }) => `
+      ${minBp(theme.breakpoints.b)} {
+        height: 100vh;
+      }
+  `}
 `
 
 export const Slide = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ isMini }) => `
-    ${isMini ? `height: 150px; width: 200px;` : ``};
+  ${({ isMini, theme }) => `
+    ${minBp(theme.breakpoints.b)} {
+      height: 100vh;
+      ${isMini ? `height: 150px; width: 200px;` : ``};
+    }
+  
   `}
 `
 export const MediaWrapper = styled.div`
@@ -41,7 +50,10 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  bottom: 0;
   ${({ theme }) => `
     padding ${theme.padding.m};
     ${minBp(theme.breakpoints.b)} {
@@ -112,10 +124,16 @@ export const Lines = styled.div`
   }
 `
 export const MiniCarousel = styled.div`
-  position: absolute;
-  top: 400px;
-  right: 50px;
-  width: 150px;
-  height: 50vh;
-  overflow: hidden;
+  ${({ theme }) => `
+    display: none;
+    ${minBp(theme.breakpoints.b)} {
+      display: block;
+    position: absolute;
+    top: 400px;
+    right: 50px;
+    width: 150px;
+    height: 50vh;
+    overflow: hidden;
+    }
+  `}
 `
