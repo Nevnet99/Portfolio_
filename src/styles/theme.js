@@ -1,45 +1,17 @@
 const theme = {
   color: {
-    background: {
-      default: 'black',
-    },
-    text: {
-      default: '#FFFFFF',
-    },
-    accent: {
-      a: '#f9ca24',
-    },
-  },
-  font: {
-    default: 'Work Sans',
-    weight: {
-      xs: '100',
-      s: '300',
-      m: '500',
-      l: '700',
-      xl: '900',
-    },
-    size: {
-      s: '14px',
-      m: '24px',
-      l: '32px',
-    },
-  },
-  padding: {
-    s: '10px',
-    m: '20px',
-    l: '30px',
-  },
-  margin: {
-    s: '10px',
-    m: '20px',
-    l: '30px',
+    text: '#FFF',
+    background: 'black',
+    primary: '#FF481A',
+    secondary: '#00434D',
   },
   breakpoints: {
-    a: 480,
+    a: 375,
     b: 800,
-    c: 1200,
+    c: 1440,
   },
+
+  maxWidth: '1440px',
 }
 
 export default theme

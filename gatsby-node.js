@@ -1,42 +1,36 @@
-const Promise = require('bluebird')
 const path = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
-//   const { createPage } = actions
-
-//   return new Promise((resolve, reject) => {
-//     const Mainpage = path.resolve('./src/templates/mainpage.js')
-//     resolve(
-//       graphql(
-//         `
-//           {
-//             allContentfulBlogPost {
-//               edges {
-//                 node {
-//                   title
-//                   slug
-//                 }
-//               }
-//             }
-//           }
-//           `
-//       ).then(result => {
-//         if (result.errors) {
-//           console.log(result.errors)
-//           reject(result.errors)
-//         }
-
-//         const posts = result.data.allContentfulBlogPost.edges
-//         posts.forEach((post, index) => {
-//           createPage({
-//             path: `/blog/${post.node.slug}/`,
-//             component: blogPost,
-//             context: {
-//               slug: post.node.slug
-//             },
-//           })
-//         })
-//       })
-//     )
-//   })
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    const projectTemplate = path.resolve('src/templates/Project.jsx')
+    resolve(
+      graphql(`
+        query MyQuery {
+          allContentfulProject {
+            edges {
+              node {
+                contentful_id
+              }
+            }
+          }
+        }
+      `).then(({ errors, data }) => {
+        if (errors) {
+          reject(errors)
+        }
+        console.log(data, 'DATAS')
+        data.allContentfulProject.edges.forEach(edge => {
+          const { contentful_id } = edge.node
+          createPage({
+            path: `/project/${contentful_id}`,
+            component: projectTemplate,
+            context: {
+              id: `${contentful_id}`,
+            },
+          })
+        })
+      })
+    )
+  })
 }

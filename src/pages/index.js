@@ -1,30 +1,42 @@
+import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
-import { FiChevronDown, FiChevronRight } from 'react-icons/fi'
+import Hero from '../components/global/Hero'
+import Projects from '../components/global/Projects'
+
 import Layout from '../components/layout'
-import HeroCarousel from '../components/HeroCarousel/HeroCarousel'
-import NeonSign from '../components/NeonSign/NeonSign'
 
-const RootIndex = ({ data }) => (
-  <Layout>
-    <HeroCarousel {...data} />
-  </Layout>
-)
+const RootIndex = ({ data: { projects } }) => {
+  console.log(projects, 'DATA')
+  return (
+    <Layout>
+      <Hero />
+      <Projects projects={projects} />
+    </Layout>
+  )
+}
 
-export default RootIndex
-
-export const pageQuery = graphql`
+export const query = graphql`
   query MyQuery {
-    allContentfulCarousel {
-      nodes {
-        title
-        description
-        backgroundImg {
-          fluid {
-            src
+    projects: allContentfulProject {
+      edges {
+        node {
+          title
+          published(fromNow: true)
+          featured
+          contentful_id
+          headerImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          richText: childContentfulProjectContentRichTextNode {
+            json
           }
         }
       }
     }
   }
 `
+
+export default RootIndex

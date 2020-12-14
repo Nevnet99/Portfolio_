@@ -2,17 +2,43 @@ import { css } from 'styled-components'
 
 export const minBp = breakpoint => `@media (min-width: ${breakpoint}px)`
 
-export const toRgba = (hex, opacity) => {
-  let c
-  if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
-    c = hex.substring(1).split('')
-    if (c.length == 3) {
-      c = [c[0], c[0], c[1], c[1], c[2], c[2]]
-    }
-    c = `0x${c.join('')}`
-    return `rgba(${[(c >> 16) & 255, (c >> 8) & 255, c & 255].join(
-      ','
-    )},${opacity})`
+export const gridWidth = () => css`
+  margin: 0px 20px;
+
+  ${({ theme }) => `
+  max-width: ${theme.maxWidth};
+  
+  ${minBp(theme.breakpoints.a)} {
+      margin: 0px 10%;
+
   }
-  throw new Error('Bad Hex')
-}
+
+  ${minBp(theme.breakpoints.b)} {
+      margin: 0px 10%;
+
+  }
+
+  
+  ${minBp(theme.breakpoints.c)} {
+    margin: 0px 15%;
+   }
+   
+
+  `}
+`
+
+export const variableSpacing = () => css`
+  ${({ theme }) => `
+  padding-top: 30px;
+  
+  ${minBp(theme.breakpoints.a)} {
+      padding-top: 50px;
+
+  }
+
+  ${minBp(theme.breakpoints.b)} {
+      padding-top: 100px;
+
+  }
+  `}
+`
