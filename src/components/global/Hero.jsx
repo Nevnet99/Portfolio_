@@ -5,69 +5,76 @@ import { minBp } from '../../styles/mixins'
 
 const HeroContainer = styled.section`
   height: 100vh;
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
   ${({ theme }) => `
       ${minBp(theme.breakpoints.b)} {
-        margin-top: 150px;
+       
       }
   
   `};
 `
 
+const SpacingContainer = styled.div`
+  text-align: center;
+  margin-top: 300px;
+`
+
 const BackgroundImage = styled.img`
   position: absolute;
   left: -20px;
-  top: -30px;
+  top: 0;
   bottom: 0;
   right: -20px;
   width: calc(100% + 20px);
   z-index: -1;
   max-width: 1660px;
   margin: 0 auto;
-`
-
-const BigMonitor = styled.p`
+  margin-top: -40px;
   display: none;
   ${({ theme }) => `
-    ${minBp(theme.breakpoints.c)} {
+    ${minBp(theme.breakpoints.b)} {
       display: initial;
-      position: absolute;
-      left: 20px;
-      top: 0;
-      width: 5vw;
-
     }
-  `}
+  `};
 `
 
 const Title = styled.h2`
-  margin-bottom: 10px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 39px;
   ${({ theme }) => `
     ${minBp(theme.breakpoints.b)} {
-      width: 60%;
+      width: 50%;
+      font-size: 60px;
     }
   `};
 `
 const Sub = styled.h3`
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   ${({ theme }) => `
     ${minBp(theme.breakpoints.b)} {
-      width: 60%;
+     width: 100%;
     }
   `};
 `
 
 const Hero = () => (
   <HeroContainer>
-    <BigMonitor>That's a big monitor 👀</BigMonitor>
     <BackgroundImage alt="shapes" src={HeroImage} />
-    <Title>Hey I’m Luke,</Title>
-    <Sub>
-      I’m a <b>Javascript Developer</b>, specialized in
-      <b> Frontend Development </b>
-      currently based in Manchester 🇬🇧
-    </Sub>
-    <button type="button">More</button>
+    <SpacingContainer>
+      <Sub>Hey I'm Luke 👋</Sub>
+      <Title>
+        Building responsive, scalable and accesible applications and websites.
+      </Title>
+      <p>
+        a <b>Javascript Developer</b> with a focus on
+        <b> Frontend Development</b> with <b>React.</b>
+      </p>
+    </SpacingContainer>
   </HeroContainer>
 )
 

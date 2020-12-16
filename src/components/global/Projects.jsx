@@ -4,24 +4,20 @@ import ProjectCard from '../shared/ProjectCard'
 
 const ProjectsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 0px -10px;
   margin-top: 15px;
 `
 
-const Projects = ({ projects: { edges: projects } }) => {
-  console.log(projects, 'PJECTS')
-  return (
-    <>
-      <h3>Projects</h3>
-      <ProjectsContainer>
-        {projects.map(({ node: project }) => {
-          console.log(project, 'PPP')
-
-          return <ProjectCard {...project} />
-        })}
-      </ProjectsContainer>
-    </>
-  )
-}
+const Projects = ({ projects: { edges: projects } }) => (
+  <>
+    <h3 id="projects">Projects</h3>
+    <ProjectsContainer>
+      {projects.map(({ node: project }) => (
+        <ProjectCard key={project.contentful_id} {...project} />
+      ))}
+    </ProjectsContainer>
+  </>
+)
 
 export default Projects

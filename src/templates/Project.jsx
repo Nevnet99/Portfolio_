@@ -10,7 +10,7 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
-  margin-top: 60px;
+  margin-top: 150px;
   margin-bottom: 20px;
 
   h4 {
@@ -46,7 +46,7 @@ const Project = props => {
     richText: { json },
   } = project
   return (
-    <Template>
+    <Template projectPage>
       <PageContainer>
         <TitleContainer>
           <h4>{title}</h4>

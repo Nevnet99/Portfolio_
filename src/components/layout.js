@@ -5,6 +5,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import theme from '../styles/theme'
 import { minBp } from '../styles/mixins'
 import Navbar from './global/Navbar'
+import Footer from './global/Footer'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -96,7 +97,7 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     border: none;
     ${({ theme }) => `
-      background: ${theme.color.primary};
+      background: ${theme.color.secondary};
       padding: 5px 15px;
       border-radius: 5px;
       text-transform: uppercase;
@@ -106,6 +107,7 @@ const GlobalStyle = createGlobalStyle`
     `}
   }
 
+
   span {
       font-family: 'Cabin';
       letter-spacing: 1.5px;
@@ -114,10 +116,35 @@ const GlobalStyle = createGlobalStyle`
 
   p {
       font-family: 'Cabin';
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       font-size: 17px;
       margin-bottom: 30px;
       line-height: 28px;
+     
+  }
+
+  .code-block {
+    margin: 20px 0;
+    span {
+      font-size: 17px;      
+    }
+
+  }
+
+  legend {
+    clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; /* added line */
+    width: 1px;
+  }
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 
 
@@ -130,28 +157,27 @@ export const PageContainer = styled.div`
   `}
 `
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+const Template = props => {
+  const { location, children } = props
+  let header
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = `${__PATH_PREFIX__}/`
-    }
-
-    return (
-      <>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <PageContainer>
-            <Navbar />
-            <main>{children}</main>
-          </PageContainer>
-        </ThemeProvider>
-      </>
-    )
+  let rootPath = `/`
+  if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
+    rootPath = `${__PATH_PREFIX__}/`
   }
+
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <PageContainer>
+          <Navbar {...props} />
+          <main>{children}</main>
+        </PageContainer>
+        <Footer />
+      </ThemeProvider>
+    </>
+  )
 }
 
 export default Template
