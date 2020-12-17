@@ -131,7 +131,7 @@ const Navbar = props => {
     } else {
       setState({ ...state, isRoot: true })
     }
-  }, [window])
+  }, [])
 
   const handleClick = (e, type) => {
     const elems = {
