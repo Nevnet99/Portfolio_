@@ -100,12 +100,11 @@ const MaxWidth = styled.div`
 
 const Navbar = props => {
   const navbar = useRef(null)
-  const elems = {
-    ele1: document.querySelector('#projects'),
-    ele2: document.querySelector('#blogPosts'),
-    ele3: document.querySelector('#contactMe'),
-  }
-  const [state, setState] = useState({ scrolling: false, isRoot: true })
+  const [state, setState] = useState({
+    scrolling: false,
+    isRoot: true,
+  })
+
   const handleScroll = evt => {
     const scrollTop =
       window.pageYOffset !== undefined
@@ -127,7 +126,6 @@ const Navbar = props => {
   }, [])
 
   useEffect(() => {
-    console.log(props, 'PROPS')
     if (props.projectPage || props.blogPage) {
       setState({ ...state, isRoot: false })
     } else {
@@ -136,6 +134,12 @@ const Navbar = props => {
   }, [window])
 
   const handleClick = (e, type) => {
+    const elems = {
+      ele1: document.querySelector('#projects'),
+      ele2: document.querySelector('#blogPosts'),
+      ele3: document.querySelector('#contactMe'),
+    }
+
     const yOffset = state.scrolling ? -90 : -160
     const element = elems[`ele${type}`]
     const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
