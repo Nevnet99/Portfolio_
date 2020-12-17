@@ -51,6 +51,12 @@ const BlogPost = props => {
         <meta charSet="utf-8" />
         <title>{title}</title>
         <link rel="canonical" href="https://www.lukebrannagan.com/blog/" />
+        <meta
+          property="og:title"
+          content={`Luke Brannagan's Portfolio: Blog post - ${title}`}
+        />
+        <meta property="og:image" content={`${img.url}`} />
+        <meta property="og:url" content="http://lukebrannagan.com" />
       </Helmet>
       <PageContainer>
         <TitleContainer>

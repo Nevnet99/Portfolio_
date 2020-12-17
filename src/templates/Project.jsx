@@ -52,6 +52,12 @@ const Project = props => {
         <meta charSet="utf-8" />
         <title>{title}</title>
         <link rel="canonical" href="https://www.lukebrannagan.com/project/" />
+        <meta
+          property="og:title"
+          content={`Luke Brannagan's Portfolio: Project - ${title}`}
+        />
+        <meta property="og:image" content={`${img.url}`} />
+        <meta property="og:url" content="http://lukebrannagan.com" />
       </Helmet>
       <PageContainer>
         <TitleContainer>

@@ -13,6 +13,12 @@ const RootIndex = ({ data: { projects, blogPosts } }) => (
     <Helmet>
       <meta charSet="utf-8" />
       <title>Homepage</title>
+      <meta property="og:title" content="Luke Brannagan" />
+      <meta
+        property="og:description"
+        content="Luke Brannagan's portfolio featuring projects as well as blog posts."
+      />
+      <meta property="og:url" content="http://lukebrannagan.com" />
     </Helmet>
     <Hero />
     <Projects projects={projects} />
