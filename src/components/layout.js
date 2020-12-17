@@ -7,19 +7,21 @@ import theme from '../styles/theme'
 import { minBp } from '../styles/mixins'
 import Navbar from './global/Navbar'
 import Footer from './global/Footer'
+import Cabin from '../assets/fonts/Cabin/CabinRegular.ttf'
+import Roboto from '../assets/fonts/Roboto_Condensed/RobotoCondensedRegular.ttf'
 
 const GlobalStyle = createGlobalStyle`
 
  @font-face {
     font-family: 'Roboto Condensed';
-    src: url('../assets/fonts/Roboto_Condensed/RobotoCondensedRegular.ttf') format('truetype');
+    src: url('${Roboto}') format('truetype');
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Cabin';
-    src: url('../assets/fonts/Cabin/CabinRegular.ttf') format('truetype');
+    src: url('${Cabin}') format('truetype');
     font-weight: 300;
     font-style: normal;
   }
