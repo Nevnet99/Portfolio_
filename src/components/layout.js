@@ -180,7 +180,7 @@ const Template = props => {
           <Navbar {...props} />
           <main>{children}</main>
         </PageContainer>
-        <Footer />
+        {!props.noFooter ? <Footer /> : null}
       </ThemeProvider>
     </>
   )

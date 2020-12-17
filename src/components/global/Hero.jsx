@@ -19,7 +19,12 @@ const HeroContainer = styled.section`
 
 const SpacingContainer = styled.div`
   text-align: center;
-  margin-top: 300px;
+  margin-top: 170px;
+  ${({ theme }) => `
+      ${minBp(theme.breakpoints.b)} {
+        margin-top: 300px;
+      }
+  `};
 `
 
 const BackgroundImage = styled.img`
