@@ -12,14 +12,14 @@ const GlobalStyle = createGlobalStyle`
 
  @font-face {
     font-family: 'Roboto Condensed';
-    src: url('../assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Roboto_Condensed/RobotoCondensedRegular.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Cabin';
-    src: url('../assets/fonts/Cabin/Cabin-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Cabin/CabinRegular.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
   }
