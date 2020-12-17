@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import Template from '../components/layout'
 import handleRichText from '../components/shared/RichText'
 import { minBp } from '../styles/mixins'
@@ -47,6 +48,11 @@ const Project = props => {
   } = project
   return (
     <Template projectPage>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{title}</title>
+        <link rel="canonical" href="https://www.lukebrannagan.com/project/" />
+      </Helmet>
       <PageContainer>
         <TitleContainer>
           <h4>{title}</h4>

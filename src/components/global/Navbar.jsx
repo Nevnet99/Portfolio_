@@ -148,7 +148,7 @@ const Navbar = props => {
   }
 
   return (
-    <NavbarContainer scrolling={state.scrolling} ref={navbar}>
+    <NavbarContainer ref={navbar}>
       <MaxWidth>
         <Link to="/">
           <h5>LUKE BRANNAGAN</h5>

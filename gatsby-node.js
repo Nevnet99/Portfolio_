@@ -28,7 +28,6 @@ exports.createPages = ({ graphql, actions }) => {
         if (errors) {
           reject(errors)
         }
-        console.log(data, 'DATAS')
         data.allContentfulProject.edges.forEach(edge => {
           const { contentful_id } = edge.node
           createPage({

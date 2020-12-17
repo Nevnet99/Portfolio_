@@ -8,17 +8,18 @@ import Projects from '../components/global/Projects'
 
 import Layout from '../components/layout'
 
-const RootIndex = ({ data: { projects, blogPosts } }) => {
-  console.log(projects, 'DATA')
-  return (
-    <Layout>
-      <Hero />
-      <Projects projects={projects} />
-      <BlogPosts blogPosts={blogPosts} />
-      <ContactMe />
-    </Layout>
-  )
-}
+const RootIndex = ({ data: { projects, blogPosts } }) => (
+  <Layout>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Homepage</title>
+    </Helmet>
+    <Hero />
+    <Projects projects={projects} />
+    <BlogPosts blogPosts={blogPosts} />
+    <ContactMe />
+  </Layout>
+)
 
 export const query = graphql`
   query MyQuery {

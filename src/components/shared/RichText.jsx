@@ -44,7 +44,6 @@ const options = {
             },
           }) => url === storedUrl
         )
-        console.log(currentAsset, 'CA')
         return <Img fluid={currentAsset.node.fluid} />
       }
     },

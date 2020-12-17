@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import '../../normalize.css'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { Helmet } from 'react-helmet'
 import theme from '../styles/theme'
 import { minBp } from '../styles/mixins'
 import Navbar from './global/Navbar'
@@ -169,6 +170,9 @@ const Template = props => {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <Helmet>
+          <html lang="en" />
+        </Helmet>
         <GlobalStyle />
         <PageContainer>
           <Navbar {...props} />
